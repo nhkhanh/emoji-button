@@ -1,6 +1,7 @@
-import commonjs from 'rollup-plugin-commonjs';
+import commonjs from '@rollup/plugin-commonjs';
 import postcss from 'rollup-plugin-postcss';
-import resolve from 'rollup-plugin-node-resolve';
+import resolve from '@rollup/plugin-node-resolve';
+import babel from '@rollup/plugin-babel';
 import replace from '@rollup/plugin-replace';
 import typescript from 'rollup-plugin-typescript2';
 import { terser } from 'rollup-plugin-terser';
@@ -11,7 +12,7 @@ export default {
   input: 'src/index.ts',
   output: {
     file: 'dist/index.js',
-    format: 'es',
+    format: 'iife',
     name: 'EmojiButton'
   },
   watch: {
@@ -29,6 +30,7 @@ export default {
     typescript(),
     resolve(),
     commonjs(),
+    babel({ babelHelpers: 'bundled' }),
     production && terser()
   ]
 };
