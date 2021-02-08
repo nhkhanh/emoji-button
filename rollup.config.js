@@ -30,7 +30,7 @@ export default {
     typescript(),
     resolve(),
     commonjs(),
-    babel({ babelHelpers: 'bundled' }),
+    babel({ babelHelpers: 'runtime' }),
     production && terser()
   ]
 };

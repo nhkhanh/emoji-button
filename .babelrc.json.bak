@@ -1,0 +1,33 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "modules": false,
+        "targets": "> 0.15%"
+      }
+    ],
+    "@babel/preset-typescript"
+  ],
+  "plugins": [
+    "@babel/plugin-external-helpers",
+    [
+      "@babel/plugin-transform-classes",
+      {
+        "loose": true
+      }
+    ],
+    [
+      "@babel/plugin-proposal-class-properties",
+      {
+        "loose": true
+      }
+    ],
+    "@babel/plugin-transform-runtime",
+    ["@babel/plugin-transform-modules-commonjs", {
+      "allowTopLevelThis": true,
+      "loose": true,
+      "lazy": true
+    }]
+  ]
+}
